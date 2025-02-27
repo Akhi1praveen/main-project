@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FLOODSAFE - Manual Flood Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+        body, html {
+            height: 100%;
+            font-family: "Roboto", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('flood-and-storm-in-planet-earth-digital-art-x8w5b05292f3gpil.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 900px;
+            margin: 120px auto 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-block {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .area {
+            font-family: "Roboto", sans-serif;
+            background: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 5px;
+            width: 80%;
+        }
+
+        .submit , .result {
+            background: #0a0a0a;
+            border: 0;
+            color: white;
+            font-size: 15px;
+            height: 40px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 20%;
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span>FLOODSAFE</span>
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Login</a>
+            <a href="#">Signup</a>
+        </div>
+    </div>
+    <form class="form">
+        <div class="form-container">
+            <div class="form-block">
+                <h2>Rainfall (mm)</h2>
+                <input class="area" type="text" id="uirf" value="1000">
+                <h2>Temperature (°C)</h2>
+                <input class="area" type="text" id="uitemp" value="1000">
+                <h2>Humidity (%)</h2>
+                <input class="area" type="text" id="uihum" value="1000">
+            </div>
+            <div class="form-block">
+                <h2>River Discharge (m³/s)</h2>
+                <input class="area" type="text" id="uird" value="1000">
+                <h2>Water Level (m)</h2>
+                <input class="area" type="text" id="uiwl" value="1000">
+                <h2>Elevation (m)</h2>
+                <input class="area" type="text" id="uiele" value="1000">
+            </div>
+        </div>
+        <button class="submit" type="button" onclick="onClickedprediction()">Predict</button>
+        <div id="uiest_pred" class="result"></div>
+        <div id="uiest_prob" class="result"></div>
+    </form>
+</body>
+</html>
